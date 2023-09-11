@@ -1,6 +1,10 @@
+import { useChartData } from '../../context/ChartDataContext';
 import * as S from '../../utils/styles/Chart.style';
 
 export default function ChartPage() {
+	const chartData = useChartData();
+	console.info('chartData', chartData);
+
 	return (
 		<>
 			<S.Container>

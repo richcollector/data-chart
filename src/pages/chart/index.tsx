@@ -1,8 +1,15 @@
-import { useChartData } from '../../context/ChartDataContext';
+import React, { useState } from 'react';
+import useDebounce from '../../hooks/useDebounce';
 import * as S from '../../utils/styles/Chart.style';
 
 export default function ChartPage() {
-	const chartData = useChartData();
+	const [areaWord, setAreaWord] = useState('');
+	const { chartData, isLoading } = useDebounce(areaWord);
+
+	const searchKeyArea = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setAreaWord(event.currentTarget.value);
+	};
+
 	console.info('chartData', chartData);
 
 	return (
@@ -11,10 +18,15 @@ export default function ChartPage() {
 				<S.Wrapper>
 					<S.ChartBox>
 						<S.FilterBox>
-							<S.FilterInput placeholder="필터링할 지역 이름을 입력해주세요." />
+							<S.FilterInput
+								value={areaWord}
+								onChange={searchKeyArea}
+								autoFocus
+								placeholder="필터링할 지역 이름을 입력해주세요."
+							/>
 							<S.FilterButton>필터링</S.FilterButton>
 						</S.FilterBox>
-						<S.ChartContentsBox>chart</S.ChartContentsBox>
+						<S.ChartContentsBox>{isLoading ? <h1>...Loading</h1> : 'charts'}</S.ChartContentsBox>
 					</S.ChartBox>
 				</S.Wrapper>
 			</S.Container>

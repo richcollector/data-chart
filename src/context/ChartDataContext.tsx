@@ -6,15 +6,13 @@ const ChartDataContext = createContext({});
 export const useChartData = () => useContext(ChartDataContext);
 
 export function ChartDataProvider({ children, chartDataService }: IChartDataProvider) {
-	const [chartData, setChartData] = useState({});
+	const [data, setData] = useState();
 
 	useEffect(() => {
-		chartDataService.get().then(datas => setChartData(datas));
+		chartDataService.get().then(datas => {
+			setData(datas);
+		});
 	}, [chartDataService]);
 
-	return (
-		<ChartDataContext.Provider value={{ chartData: chartData }}>
-			{children}
-		</ChartDataContext.Provider>
-	);
+	return <ChartDataContext.Provider value={{ data }}>{children}</ChartDataContext.Provider>;
 }

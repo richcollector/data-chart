@@ -1,81 +1,80 @@
 import {
-	Chart as ChartJS,
-	LinearScale,
-	CategoryScale,
-	BarElement,
-	PointElement,
-	LineElement,
-	Legend,
+	ComposedChart,
+	Area,
+	Bar,
+	XAxis,
+	YAxis,
+	CartesianGrid,
 	Tooltip,
-	LineController,
-	BarController,
-} from 'chart.js';
-import { Chart } from 'react-chartjs-2';
-
-ChartJS.register(
-	LinearScale,
-	CategoryScale,
-	BarElement,
-	PointElement,
-	LineElement,
 	Legend,
-	Tooltip,
-	LineController,
-	BarController,
-);
+	ResponsiveContainer,
+} from 'recharts';
 
-export function Charts({ chartData, areaData, barData }: any) {
-	const labels = Object.keys(chartData);
-	console.log('labels', labels);
+const data = [
+	{
+		name: 'Page A',
+		uv: 590,
+		pv: 800,
+		amt: 1400,
+	},
+	{
+		name: 'Page B',
+		uv: 868,
+		pv: 967,
+		amt: 1506,
+	},
+	{
+		name: 'Page C',
+		uv: 1397,
+		pv: 1098,
+		amt: 989,
+	},
+	{
+		name: 'Page D',
+		uv: 1480,
+		pv: 1200,
+		amt: 1228,
+	},
+	{
+		name: 'Page E',
+		uv: 1520,
+		pv: 1108,
+		amt: 1100,
+	},
+	{
+		name: 'Page F',
+		uv: 1400,
+		pv: 680,
+		amt: 1700,
+	},
+];
 
-	const options = {
-		responsive: true,
-		interaction: {
-			mode: 'index' as const,
-			intersect: false,
-		},
-		stacked: false,
-		plugins: {
-			title: {
-				display: true,
-				text: 'Chart.js Line Chart - Multi Axis',
-			},
-		},
-		scales: {
-			Area: {
-				type: 'linear' as const,
-				display: true,
-				position: 'left' as const,
-			},
-			Bar: {
-				type: 'linear' as const,
-				display: true,
-				position: 'right' as const,
-				grid: {
-					drawOnChartArea: false,
-				},
-			},
-		},
-	};
-
-	const data = {
-		labels,
-		datasets: [
-			{
-				fill: true,
-				label: 'Area',
-				data: areaData,
-				backgroundColor: 'rgba(53, 162, 235, 0.5)',
-				yAxisID: 'Area',
-			},
-			// {
-			// 	type: 'bar' as const,
-			// 	label: 'Bar',
-			// 	backgroundColor: 'rgb(75, 192, 192)',
-			// 	data: barData,
-			// 	yAxisID: 'Bar',
-			// },
-		],
-	};
-	return <Chart type="bar" options={options} data={data} />;
+export default function Charts({ chartData }: any) {
+	console.log(chartData);
+	return (
+		<>
+			<ResponsiveContainer width="100%" height="100%">
+				<ComposedChart data={chartData}>
+					<CartesianGrid stroke="#f5f5f5" />
+					<XAxis dataKey="name" scale="band" />
+					<YAxis
+						dataKey="value_bar"
+						orientation="right"
+						label={{ value: 'Bar', angle: 90, position: 'insideRight' }}
+					/>
+					<YAxis
+						yAxisId="area"
+						dataKey="value_area"
+						domain={[0, (max: number) => Math.max(max * 2, 200)]}
+						orientation="left"
+						label={{ value: 'Area', angle: -90, position: 'insideLeft' }}
+					/>
+					<Tooltip />
+					<Legend />
+					<Area type="monotone" dataKey="value_area" fill="#8884d8" stroke="#8884d8" />
+					<Bar dataKey="value_bar" barSize={20} fill="#413ea0" />
+				</ComposedChart>
+			</ResponsiveContainer>
+		</>
+	);
 }

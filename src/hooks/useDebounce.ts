@@ -5,7 +5,7 @@ import chartDataReducer from '../reducer/chartDataReducer';
 export default function useDebounce(areaWord: string) {
 	const response: { data?: {} } = useChartData();
 
-	const [{ chartData, isLoading, areaData, barData }, dispatch] = useReducer(chartDataReducer, {
+	const [{ chartData, isLoading }, dispatch] = useReducer(chartDataReducer, {
 		chartData: {},
 		isLoading: false,
 	});
@@ -23,5 +23,5 @@ export default function useDebounce(areaWord: string) {
 		}
 	}, [areaWord]);
 
-	return { chartData, areaData, barData, isLoading };
+	return { chartData, isLoading };
 }

@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const httpClient = new HttpClientImpl(ROUTES.URL);
 const chartDataService = new ChartDataServiceImpl(httpClient);
 chartDataService.get().then(res => {
-	console.log(res);
+	console.info(res);
 });
 
 root.render(

@@ -5,14 +5,15 @@ import chartDataReducer from '../reducer/chartDataReducer';
 export default function useDebounce(areaWord: string) {
 	const response: { data?: {} } = useChartData();
 
-	const [{ chartData, isLoading }, dispatch] = useReducer(chartDataReducer, {
+	const [{ chartData, isLoading, areaData, barData }, dispatch] = useReducer(chartDataReducer, {
 		chartData: {},
 		isLoading: false,
 	});
 
 	useEffect(() => {
 		if (areaWord === '') {
-			dispatch({ type: 'loadChartData', chartData: response.data });
+			if (response.data !== undefined)
+				dispatch({ type: 'loadChartData', chartData: response.data });
 		} else if (areaWord) {
 			const timeoutId = setTimeout(() => {
 				dispatch({ type: 'requestChartData' });
@@ -22,5 +23,5 @@ export default function useDebounce(areaWord: string) {
 		}
 	}, [areaWord]);
 
-	return { chartData, isLoading };
+	return { chartData, areaData, barData, isLoading };
 }

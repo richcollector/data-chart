@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import useDebounce from '../../hooks/useDebounce';
 import * as S from '../../utils/styles/Chart.style';
+import { Charts } from '../../components/Chart';
 
 export default function ChartPage() {
 	const [areaWord, setAreaWord] = useState('');
-	const { chartData, isLoading } = useDebounce(areaWord);
+	const { chartData, areaData, barData, isLoading } = useDebounce(areaWord);
 
 	const searchKeyArea = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setAreaWord(event.currentTarget.value);
@@ -26,7 +27,13 @@ export default function ChartPage() {
 							/>
 							<S.FilterButton>필터링</S.FilterButton>
 						</S.FilterBox>
-						<S.ChartContentsBox>{isLoading ? <h1>...Loading</h1> : 'charts'}</S.ChartContentsBox>
+						<S.ChartContentsBox>
+							{isLoading ? (
+								<h1>...Loading</h1>
+							) : (
+								chartData && <Charts chartData={chartData} areaData={areaData} barData={barData} />
+							)}
+						</S.ChartContentsBox>
 					</S.ChartBox>
 				</S.Wrapper>
 			</S.Container>

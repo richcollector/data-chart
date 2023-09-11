@@ -8,9 +8,12 @@ import {
 	Tooltip,
 	Legend,
 	ResponsiveContainer,
+	Cell,
 } from 'recharts';
 
-export default function Charts({ chartData }: any) {
+export default function Charts({ response, choiceArea, setChoiceArea }: any) {
+	const chartData = response.data;
+
 	const CustomTooltip = ({ active, payload }: any) => {
 		if (active && payload && payload.length) {
 			return (
@@ -24,7 +27,9 @@ export default function Charts({ chartData }: any) {
 
 		return null;
 	};
-	console.log(chartData);
+
+	console.log('chartData::', chartData);
+
 	return (
 		<>
 			<ResponsiveContainer width="100%" height="100%">
@@ -39,14 +44,22 @@ export default function Charts({ chartData }: any) {
 					<YAxis
 						yAxisId="area"
 						dataKey="value_area"
-						domain={[0, (max: number) => Math.max(max * 2, 200)]}
 						orientation="left"
 						label={{ value: 'Area', angle: -90, position: 'insideLeft' }}
 					/>
 					<Tooltip content={<CustomTooltip />} />
 					<Legend />
 					<Area type="monotone" dataKey="value_area" fill="red" stroke="red" />
-					<Bar dataKey="value_bar" barSize={20} fill="#bcbafb" />
+					<Bar
+						dataKey="value_bar"
+						barSize={20}
+						fill="#bcbafb"
+						onClick={data => setChoiceArea(data.id)}
+					>
+						{chartData.map((choice: any) => (
+							<Cell key={choice.id} fill={choice.id === choiceArea ? 'blue' : '#bcbafb'} />
+						))}
+					</Bar>
 				</ComposedChart>
 			</ResponsiveContainer>
 		</>

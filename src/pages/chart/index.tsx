@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import useDebounce from '../../hooks/useDebounce';
 import * as S from '../../utils/styles/Chart.style';
 import Charts from '../../components/Chart';
+import { useChartData } from '../../context/ChartDataContext';
+import { useState } from 'react';
 
 export default function ChartPage() {
-	const [areaWord, setAreaWord] = useState('');
-	const { chartData, isLoading } = useDebounce(areaWord);
-
-	const searchKeyArea = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setAreaWord(event.currentTarget.value);
-	};
-
-	console.info('chartData', chartData);
+	const [choiceArea, setChoiceArea] = useState('');
+	const area = ['초기화', '성북구', '강남구', '노원구', '중랑구'];
+	const response = useChartData();
+	console.log('data:::', response);
 
 	return (
 		<>
@@ -19,16 +15,21 @@ export default function ChartPage() {
 				<S.Wrapper>
 					<S.ChartBox>
 						<S.FilterBox>
-							<S.FilterInput
-								value={areaWord}
-								onChange={searchKeyArea}
-								autoFocus
-								placeholder="필터링할 지역 이름을 입력해주세요."
-							/>
-							<S.FilterButton>필터링</S.FilterButton>
+							{area.map(value => (
+								<S.FilterButton
+									key={value}
+									onClick={() => {
+										value === '초기화' ? setChoiceArea('') : setChoiceArea(value);
+									}}
+								>
+									{value}
+								</S.FilterButton>
+							))}
 						</S.FilterBox>
 						<S.ChartContentsBox>
-							{isLoading ? <h1>...Loading</h1> : chartData && <Charts chartData={chartData} />}
+							{response && (
+								<Charts response={response} choiceArea={choiceArea} setChoiceArea={setChoiceArea} />
+							)}
 						</S.ChartContentsBox>
 					</S.ChartBox>
 				</S.Wrapper>

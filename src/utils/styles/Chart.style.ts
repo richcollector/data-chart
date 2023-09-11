@@ -54,22 +54,9 @@ export const FilterBox = styled.div`
 	width: 100%;
 `;
 
-export const FilterInput = styled.input`
-	height: 40px;
-	width: 60%;
-
-	padding: 10px;
-	margin-right: 10px;
-
-	font-size: 20px;
-
-	border-radius: 10px;
-	border: none;
-`;
-
 export const FilterButton = styled.button`
 	width: 20%;
-	height: 40px;
+	height: 30px;
 
 	font-size: 20px;
 	color: white;

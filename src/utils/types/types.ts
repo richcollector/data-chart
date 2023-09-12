@@ -5,3 +5,8 @@ export interface IChartDataProvider {
 	children: React.ReactNode;
 	chartDataService: ChartDataServiceImpl;
 }
+
+export interface IChartsProps {
+	choiceArea: string;
+	setChoiceArea: React.Dispatch<React.SetStateAction<string>>;
+}

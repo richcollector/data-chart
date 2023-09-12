@@ -22,7 +22,7 @@
 
 ✌️ 개인의 서버에 올린 작업물로 2023년 10월부터는 접속이 불가 할 수 있는 점 양해바랍니다.
 
-🔗 [배포 링크]([https://github.com/richcollector/data-chart](http://data-chart.s3-website.ap-northeast-2.amazonaws.com))
+🔗 [배포 링크]([https://github.com/richcollector/data-chart](http://data-chart.s3-website.ap-northeast-2.amazonaws.com)
 
 ### 구현 영상
 

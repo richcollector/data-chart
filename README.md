@@ -26,9 +26,9 @@
 
 ### 구현 영상
 
-|                                                                 (data-chart)                                                                 |
+|                                                                  data-chart                                                                  |
 | :------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/57041835-b26f-4621-830e-62f879d94be7" /> |
+| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/d0ca36ba-4081-4b17-8d0f-8f82701b5c2e" /> |
 
 ## 🗂 더 알아보고 싶으시다면?
 

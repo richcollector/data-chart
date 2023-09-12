@@ -23,8 +23,8 @@ export const ChartBox = styled.div`
 	justify-content: space-around;
 	align-items: center;
 
-	width: 50%;
-	height: 70%;
+	width: 90%;
+	height: 90%;
 
 	background-color: #f5f2fc;
 	border: 1px solid #bdbdbd;
@@ -39,7 +39,7 @@ export const ChartContentsBox = styled.div`
 	justify-content: center;
 
 	width: 90%;
-	height: 80%;
+	height: 90%;
 
 	border-radius: 15px;
 	background-color: #ffffff;
@@ -55,10 +55,10 @@ export const FilterBox = styled.div`
 `;
 
 export const FilterButton = styled.button`
-	width: 20%;
-	height: 30px;
+	width: 15%;
+	height: 20px;
 
-	font-size: 20px;
+	font-size: 10px;
 	color: white;
 
 	border-radius: 10px;
@@ -72,3 +72,9 @@ export const FilterButton = styled.button`
 		border: 1px solid #404040;
 	}
 `;
+
+export const ActiveStyle = {
+	color: '#404040',
+	backgroundColor: '#ffffff',
+	border: '1px solid #404040',
+};

@@ -40,26 +40,21 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 						<CartesianGrid stroke="#f5f5f5" />
 						<XAxis dataKey="time" scale="band" />
 						<YAxis
-							dataKey={`${VALUE_AREA_NAME.BAR}`}
-							orientation="right"
-							label={{ value: `${VALUE_NAME.BAR}`, angle: 90, position: 'insideRight' }}
-						/>
-						<YAxis
 							yAxisId={`${VALUE_NAME.AREA}`}
 							dataKey={`${VALUE_AREA_NAME.AREA}`}
 							orientation="left"
 							domain={[0, 200]}
 							label={{ value: `${VALUE_NAME.AREA}`, angle: -90, position: 'insideLeft' }}
 						/>
+						<YAxis
+							dataKey={`${VALUE_AREA_NAME.BAR}`}
+							orientation="right"
+							label={{ value: `${VALUE_NAME.BAR}`, angle: 90, position: 'insideRight' }}
+						/>
+
 						<Tooltip content={<CustomTooltip />} />
 						<Legend />
-						<Area
-							yAxisId={`${VALUE_NAME.AREA}`}
-							type="monotone"
-							dataKey={`${VALUE_AREA_NAME.AREA}`}
-							fill="red"
-							stroke="red"
-						/>
+
 						<Bar
 							dataKey={`${VALUE_AREA_NAME.BAR}`}
 							barSize={20}
@@ -70,6 +65,13 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 								<Cell key={choice.id} fill={choice.id === choiceArea ? 'blue' : '#bcbafb'} />
 							))}
 						</Bar>
+						<Area
+							yAxisId={`${VALUE_NAME.AREA}`}
+							type="monotone"
+							dataKey={`${VALUE_AREA_NAME.AREA}`}
+							fill="red"
+							stroke="red"
+						/>
 					</ComposedChart>
 				</ResponsiveContainer>
 			)}

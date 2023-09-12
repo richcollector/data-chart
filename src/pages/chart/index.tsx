@@ -15,6 +15,7 @@ export default function ChartPage() {
 							{AREA.map(value => (
 								<S.FilterButton
 									key={value}
+									style={value === choiceArea ? S.ActiveStyle : {}}
 									onClick={() => {
 										value === '초기화' ? setChoiceArea('') : setChoiceArea(value);
 									}}

@@ -34,7 +34,9 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 
 	return (
 		<>
-			{dataCheck(chartData) && (
+			{dataCheck(chartData) ? (
+				<h1>...Loading</h1>
+			) : (
 				<ResponsiveContainer width="100%" height="100%">
 					<ComposedChart data={chartData}>
 						<CartesianGrid stroke="#f5f5f5" />
@@ -80,5 +82,5 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 }
 
 function dataCheck(chartData: any) {
-	return chartData ? true : false;
+	return chartData !== undefined ? false : true;
 }

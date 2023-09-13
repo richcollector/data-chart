@@ -12,8 +12,10 @@ export default function ChartPage() {
 				<S.Wrapper>
 					<S.ChartBox>
 						<S.FilterBox>
+							<h2>{choiceArea === '' ? '초기화' : choiceArea}</h2>
 							{AREA.map(value => (
 								<S.FilterButton
+									data-testid={value}
 									key={value}
 									style={value === choiceArea ? S.ActiveStyle : {}}
 									onClick={() => {

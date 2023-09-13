@@ -1,7 +1,7 @@
 import { Global } from '@emotion/react';
 import { globalStyles } from './utils/styles/Global.Styles';
 import { Route, Routes } from 'react-router-dom';
-import ChartPage from './pages/chart';
+import ChartPage from './pages/chart/ChartPage';
 import { ROUTES } from './utils/constants/constants';
 
 function App() {

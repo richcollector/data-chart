@@ -35,7 +35,7 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 	return (
 		<>
 			{dataCheck(chartData ?? []) ? (
-				<h1>...Loading</h1>
+				<span style={{ fontSize: '30px' }}>...Loading</span>
 			) : (
 				<ResponsiveContainer width="100%" height="100%">
 					<ComposedChart data={chartData}>

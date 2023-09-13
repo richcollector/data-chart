@@ -21,10 +21,13 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 	const CustomTooltip = ({ active, payload }: any) => {
 		if (active && payload && payload.length) {
 			return (
-				<div className="custom-tooltip">
+				<div
+					className="custom-tooltip"
+					style={{ backgroundColor: 'white', borderRadius: '10px', padding: '10px' }}
+				>
 					<p className="label">{`id: ${payload[0].payload.id}`}</p>
-					<p className="label">{`value_area: ${payload[0].value}`}</p>
-					<p className="label">{`value_bar: ${payload[1].value}`}</p>
+					<p className="label" style={{ color: 'red' }}>{`value_area: ${payload[0].value}`}</p>
+					<p className="label" style={{ color: '#bcbafb' }}>{`value_bar: ${payload[1].value}`}</p>
 				</div>
 			);
 		}

@@ -23,6 +23,8 @@ export const ChartBox = styled.div`
 	justify-content: space-around;
 	align-items: center;
 
+	padding: 10px 0;
+
 	width: 90%;
 	height: 90%;
 
@@ -39,7 +41,7 @@ export const ChartContentsBox = styled.div`
 	justify-content: center;
 
 	width: 90%;
-	height: 90%;
+	height: 80%;
 
 	border-radius: 15px;
 	background-color: #ffffff;
@@ -50,8 +52,10 @@ export const FilterBox = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
-	width: 100%;
+	justify-content: space-evenly;
+
+	width: 90%;
+	height: 10%;
 `;
 
 export const FilterButton = styled.button`

@@ -26,7 +26,7 @@
 
 |                                                                  data-chart                                                                  |
 | :------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/069ebbcc-fc54-48a3-9dac-7eef03fdfa92" /> |
+| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/38b61bbc-8612-48fe-8fd7-d52a20662a07" /> |
 
 ## 🗂 더 알아보고 싶으시다면?
 

@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import ChartPage from './ChartPage';
 
 test('button test: when click the reset button', () => {
-	const reSetButton = screen.getByTestId('초기화');
+	const { reSetButton } = setUp();
 	const heading = screen.getByRole('heading');
 
 	act(() => {

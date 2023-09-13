@@ -8,10 +8,8 @@
    - Area 그래프의 기준값은 `value_area` 값을 이용해주세요
    - Bar 그래프의 기준값은 `value_bar` 값을 이용해주세요
    - 차트의 Y축에 대략적인 수치를 표현해주세요(예시 이미지 참고)
-     
 2. 호버 기능 구현
    - 특정 데이터 구역에 마우스 호버시 `id, value_area, value_bar` 데이터를 툴팁 형태로 제공해주세요
-     
 3. 필터링 기능 구현
    - 필터링 기능을 구현해주세요, 필터링은 특정 데이터 구역을 하이라이트 하는 방식으로 구현해주세요
    - 필터링 기능은 버튼 형태로 ID값(지역이름)을 이용해주세요
@@ -28,7 +26,7 @@
 
 |                                                                  data-chart                                                                  |
 | :------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/d0ca36ba-4081-4b17-8d0f-8f82701b5c2e" /> |
+| <img width="800" alt="data-chart" src="https://github.com/richcollector/data-chart/assets/104312779/069ebbcc-fc54-48a3-9dac-7eef03fdfa92" /> |
 
 ## 🗂 더 알아보고 싶으시다면?
 

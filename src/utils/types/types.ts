@@ -10,3 +10,11 @@ export interface IChartsProps {
 	choiceArea: string;
 	setChoiceArea: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface IResponseData {
+	data?: Array<object>;
+}
+
+export interface Ichoice {
+	id?: string;
+}

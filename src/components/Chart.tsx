@@ -12,10 +12,10 @@ import {
 } from 'recharts';
 import { useChartData } from '../context/ChartDataContext';
 import { VALUE_AREA_NAME, VALUE_NAME } from '../utils/constants/constants';
-import { IChartsProps } from '../utils/types/types';
+import { IChartsProps, IResponseData, Ichoice } from '../utils/types/types';
 
 export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
-	const response: any = useChartData();
+	const response: IResponseData = useChartData();
 	const chartData = response?.data;
 
 	const CustomTooltip = ({ active, payload }: any) => {
@@ -34,7 +34,7 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 
 	return (
 		<>
-			{dataCheck(chartData) ? (
+			{dataCheck(chartData ?? []) ? (
 				<h1>...Loading</h1>
 			) : (
 				<ResponsiveContainer width="100%" height="100%">
@@ -63,7 +63,7 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 							fill="#bcbafb"
 							onClick={data => setChoiceArea(data.id)}
 						>
-							{chartData.map((choice: any) => (
+							{chartData?.map((choice: Ichoice) => (
 								<Cell key={choice.id} fill={choice.id === choiceArea ? 'blue' : '#bcbafb'} />
 							))}
 						</Bar>
@@ -81,6 +81,6 @@ export default function Charts({ choiceArea, setChoiceArea }: IChartsProps) {
 	);
 }
 
-function dataCheck(chartData: any) {
-	return chartData !== undefined ? false : true;
+function dataCheck(chartData: Array<object>) {
+	return chartData.length ? false : true;
 }

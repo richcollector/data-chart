@@ -1,9 +1,10 @@
 import { ROUTES } from '../utils/constants/constants';
+import { HttpClientImpl } from './HttpClientImpl';
 
 export class ChartDataServiceImpl {
 	#httpClient;
 
-	constructor(httpClient: any) {
+	constructor(httpClient: HttpClientImpl) {
 		this.#httpClient = httpClient;
 	}
 
